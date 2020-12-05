@@ -87,6 +87,7 @@ if (connect => $hstt) {
       print color("yellow"), "7. File infection creator with automatic generator \n", color("reset");
       print color("yellow"), "8. Fake login creator for phising \n", color("reset");
       print color("yellow"), "9. Website attacking w KRN \n", color("reset");
+      print color("yellow"), "10. Update Kraken \n", color("reset");
       print "\n";
       print "\n";
       print color("blue"), "Choose>", color("reset");
@@ -2025,32 +2026,63 @@ if (window.csa) {
 
            my $phpfile = $hostNamePHP;
            unless (defined($phpfile->{'index.php'} || $phpfile{'index.php'})) {
-             die color("red"), "[!] Cannot getting the PHP file 1 ", color("reset");
+             print color("red"), "[!] Cannot getting the parameter PHP file 1 \n", color("reset");
            }
-           print color("green"), "[+] Getting the PHP file 1 : $urk/index.php", color("reset");
            
            my $phpfile2 = $hostNamePHP;
            unless (defined($phpfile2->{'admin.php'} || $phpfile2{'admin.php'})) {
-             die color("red"), "[!] Cannot getting the PHP file 2 ", color("reset");
+             print color("red"), "[!] Cannot getting the parameter PHP file 2 \n", color("reset");
            }
-           print color("green"), "[+] Getting the PHP file 2 : $urk/admin.php", color("reset");
            
            my $phpfile3 = $hostNamePHP;
            unless (defined($phpfile3->{'login.php'} || $phpfile3{'login.php'})) {
-             die color("red"), "[!] Cannot getting the PHP file 3 ", color("reset");
+             print color("red"), "[!] Cannot getting the parameter PHP file 3 \n", color("reset");
            }
-           print color("green"), "[+] Getting the PHP file 3 : $urk/login.php", color("reset");
            
            my $phpfile4 = $hostNamePHP;
            unless (defined($phpfile4->{'admin_login.php'} || $phpfile4{'admin_login.php'})) {
-             die color("red"), "[!] Cannot getting the PHP file 4 ", color("reset");
+             print color("red"), "[!] Cannot getting the parameter PHP file 4 \n", color("reset");
            }
-           print color("green"), "[+] Getting the PHP file 4 : $urk/admin_login.php", color("reset");
+         
+           sleep(4);
+           print color("yellow"), "[+] Please wait to checking the result ... \n", color("reset");
+           my $getAllInfo;
+           $getAllInfo ne '';
+           $phpfile->{'index.php'} = $getAllInfo;
+
+           $phpfile2->{'admin.php'} = $getAllInfo;
+
+           $phpfile3->{'login.php'} = $getAllInfo;
+
+           $phpfile4->{'admin_login.php'} = $getAllInfo;
+           sleep(4);
+           unless(defined $phpfile{'index.php'}) {print color("green"), "[+] Checking the php : index.php file \n", color("reset")}
+           unless(defined $phpfile2{'admin.php'}) {print color("green"), "[+] Checking the php : admin.php file \n", color("reset")}
+           unless(defined $phpfile3{'login.php'}) {print color("green"), "[+] Checking the php : login.php file \n", color("reset")}
+           unless(defined $phpfile4{'admin_login.php'}) {print color("green"), "[+] Checking the php : admin_login.php file \n", color("reset")}
+           
+           if ($phpfile = 0) {
+             print color("green"), "[+] Checking successed \n", color("reset");
+           }
+
+           if ($phpfile2 = 0) {
+             print color("green"), "[+] Checking successed \n", color("reset");
+           }
+
+           if ($phpfile3 = 0) {
+             print color("green"), "[+] Checking successed \n", color("reset");
+           }
+
+           if ($phpfile4 = 0) {
+             print color("green"), "[+] Checking successed \n", color("reset");
+           }
            
            all();
          } else {
            all()
          }
+      } elsif ($choose == "10") {
+        system("git clone https://github.com/fukuyama-19/kraken");
       } else {
          system("clear");
          all();
